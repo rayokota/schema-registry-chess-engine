@@ -35,8 +35,8 @@ public class ChessSchema implements ParsedSchema {
 
     private static final int MOVE_TIME_MS = 3000;
 
-    private final Game game;
     private String move;
+    private String pgn;
     private final Integer version;
     private final List<SchemaReference> references;
     private final Map<String, String> resolvedReferences;
@@ -58,21 +58,20 @@ public class ChessSchema implements ParsedSchema {
         props.put("blackId", String.valueOf(-1));
         props.put("white", "Player");
         props.put("black", "Computer");
-        Game game = new Game("", props);
-        if (game.checkMove(schemaString)) {
+        if (schemaString.trim().contains(" ")) {
+            System.out.println("** found pgn " + schemaString);
+            move = null;
+            pgn = schemaString;
+        } else {
             System.out.println("** found move " + schemaString);
             move = schemaString;
-        } else {
-            move = null;
-            System.out.println("** found pgn " + schemaString);
-            game.setPgnMoves(schemaString);
+            pgn = null;
         }
-        this.game = game;
     }
 
     @Override
-    public Game rawSchema() {
-        return game;
+    public String rawSchema() {
+        return canonicalString();
     }
 
     @Override
@@ -82,12 +81,12 @@ public class ChessSchema implements ParsedSchema {
 
     @Override
     public String name() {
-        return game.getId();
+        return "";
     }
 
     @Override
     public String canonicalString() {
-        return move != null ? move : game.getPgnMoves();
+        return move != null ? move : pgn;
     }
 
     public Integer version() {
@@ -107,10 +106,12 @@ public class ChessSchema implements ParsedSchema {
     public boolean isBackwardCompatible(ParsedSchema previousSchema) {
         ChessSchema chessSchema = (ChessSchema) previousSchema;
         String lastBoard = chessSchema.canonicalString();
+        Game game = new Game();
         game.setPgnMoves(lastBoard);
         boolean legal = game.addMove(move);
         game.addMove(game.getBestMove(MOVE_TIME_MS));
         move = null;
+        pgn = game.getPgnMoves();
         return legal;
     }
 
@@ -125,9 +126,11 @@ public class ChessSchema implements ParsedSchema {
         System.out.println("*** prev size " + previousSchemas.size());
         System.out.println("*** move " + move);
         if (move != null && previousSchemas.isEmpty()) {
+            Game game = new Game();
             game.addMove(move);
             game.addMove(game.getBestMove(MOVE_TIME_MS));
             move = null;
+            pgn = game.getPgnMoves();
             System.out.println("*** yes move " + move);
         } else {
             System.out.println("*** no move " + move);
