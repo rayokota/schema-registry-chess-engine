@@ -1,6 +1,6 @@
-# Confluent Schema Registry Subject Modes
+# Confluent Schema Registry Chess Engine
 
-This is a resource extension for the Confluent Schema Registry that provides subject modes.
+This is a resource extension for the Confluent Schema Registry that provides a playable chess egnine.
 
-For more information, see [Fun with Confluent Schema Registry Extensions](https://yokota.blog/2019/01/14/fun-with-confluent-schema-registry-extensions/).
+For more information, see [Playing Chess with Confluent Schema Registry](tbd).
 
