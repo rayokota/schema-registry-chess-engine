@@ -1,7 +1,14 @@
 <template>
     <div>
         <h2 id="page-heading">
-            <span id="subject-heading">Subjects</span>
+            <span id="subject-heading">Games</span>
+            <router-link to="/entity/subject/new" tag="button" id="jh-create-entity"
+                         class="btn btn-primary float-right jh-create-entity create-subject">
+                <font-awesome-icon icon="plus"></font-awesome-icon>
+                <span>
+                    Create new Game
+                </span>
+            </router-link>
         </h2>
         <!--<jhi-alert></jhi-alert>-->
         <br/>
@@ -10,7 +17,6 @@
                 <thead>
                 <tr>
                     <th><span>Name</span></th>
-                    <th><span>Compatibility</span></th>
                     <th></th>
                 </tr>
                 </thead>
@@ -20,18 +26,12 @@
                         <router-link :to="{name: 'SubjectView', params: {subjectId: subject.name}}">{{subject.name}}
                         </router-link>
                     </td>
-                    <td>{{subject.compatibilityLevel}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <router-link :to="{name: 'SubjectView', params: {subjectId: subject.name}}" tag="button"
                                          class="btn btn-info btn-sm">
                                 <font-awesome-icon icon="eye"></font-awesome-icon>
                                 <span class="d-none d-md-inline">View</span>
-                            </router-link>
-                            <router-link :to="{name: 'SubjectEdit', params: {subjectId: subject.name}}" tag="button"
-                                         class="btn btn-primary btn-sm">
-                                <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
-                                <span class="d-none d-md-inline">Edit</span>
                             </router-link>
                             <b-btn v-on:click="prepareRemove(subject)"
                                    class="btn btn-danger btn-sm"

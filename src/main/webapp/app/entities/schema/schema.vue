@@ -2,13 +2,6 @@
     <div>
         <h2 id="page-heading">
             <span id="schema-heading">Schema</span>
-            <router-link to="/entity/schema/new" tag="button" id="jh-create-entity"
-                         class="btn btn-primary float-right jh-create-entity create-schema">
-                <font-awesome-icon icon="plus"></font-awesome-icon>
-                <span>
-                    Create new Schema
-                </span>
-            </router-link>
         </h2>
         <br/>
         <div>

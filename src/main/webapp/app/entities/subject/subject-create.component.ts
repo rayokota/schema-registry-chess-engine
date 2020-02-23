@@ -1,14 +1,14 @@
 import {integer, maxLength, minLength, pattern, required} from 'vuelidate/lib/validators';
 
-import SchemaService from './schema.service.vue';
+import SubjectService from './subject.service.vue';
 
-const SchemaCreate = {
-    mixins: [SchemaService],
+const SubjectCreate = {
+    mixins: [SubjectService],
     data() {
         return {
             schema: {
                 subject: null,
-                schema: null
+                schema: '{new game}'
             },
             isSaving: false,
             error: null
@@ -17,11 +17,11 @@ const SchemaCreate = {
     methods: {
         save() {
             this.isSaving = true;
-            this.createSchema(this.schema)
+            this.createSubject(this.schema)
                 .then(response => {
                     this.$store.commit('setSchemaId', response.data.id);
                     this.$store.commit('setSchema', this.schema.schema);
-                    this.$router.go(-1);
+                    this.$router.push({ name: 'SubjectView', params: { subjectId: this.schema.subject } })
                     this.isSaving = false;
                 })
                 .catch(error => {
@@ -37,4 +37,4 @@ const SchemaCreate = {
     }
 };
 
-export default SchemaCreate;
+export default SubjectCreate;

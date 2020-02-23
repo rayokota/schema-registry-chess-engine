@@ -7,15 +7,12 @@
             </div>
 
             <form name="editForm" role="form" novalidate v-on:submit.prevent="save()">
-                <h2 id="srApp.schema.home.createLabel">Create a Schema</h2>
+                <h2 id="srApp.schema.home.createLabel">Create a Game</h2>
                 <div>
                     <div class="form-group">
                         <label class="form-control-label" for="schema-subject">Subject</label>
                         <input type="text" class="form-control" name="subject" id="schema-subject"
                                v-model="schema.subject"/>
-                        <label class="form-control-label" for="schema-schema">Schema</label>
-                        <input type="text" class="form-control" name="schema" id="schema-schema"
-                               v-model="schema.schema"/>
                     </div>
                 </div>
                 <div>
@@ -30,5 +27,5 @@
         </div>
     </div>
 </template>
-<script lang="ts" src="./schema-create.component.ts">
+<script lang="ts" src="./subject-create.component.ts">
 </script>

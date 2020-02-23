@@ -28,18 +28,18 @@ const SubjectDetails = {
     },
     methods: {
         showInfo(data) {
-            //this.positionInfo = chess.toColor()
             this.positionInfo = data;
             axios.post(`subjects/${this.subjectId}/versions`, {schemaType: "CHESS", schema: data.history[data.history.length-1]})
                 .then(response => {
                     var id = response.data.id;
-                    axios.get(`schemas/ids/${id}`)
+                    axios.get(`subjects/${this.subjectId}/versions/latest`)
                         .then(response => {
                             var pgn = response.data.schema;
                             var chess = new Chess();
                             chess.load_pgn(pgn);
                             var history = chess.history();
                             this.currentLastMove = history[history.length-1];
+                            this.versions.push(response.data);
                             console.log("last " + this.currentLastMove);
                         })
                 })

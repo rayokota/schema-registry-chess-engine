@@ -10,7 +10,7 @@
             <!--a class="navbar-brand logo float-left" routerLink="/" (click)="collapseNavbar()"-->
             <b-navbar-brand class="logo float-left" b-link to="/">
                 <span class="logo-img"></span>
-                <span class="navbar-title">Schema Registry Browser</span> <span class="navbar-version">{{version}}</span>
+                <span class="navbar-title">Chess Engine</span> <span class="navbar-version">{{version}}</span>
             </b-navbar-brand>
         </div>
         <!--<div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed">-->
@@ -29,7 +29,7 @@
                     </template>
                     <b-dropdown-item to="/entity/subject" class="dropdown-item" v-on:click="collapseNavbar()">
                         <font-awesome-icon icon="asterisk"/>
-                        <span>Subject</span>
+                        <span>Games</span>
                     </b-dropdown-item>
                     <b-dropdown-item to="/entity/schema" class="dropdown-item" v-on:click="collapseNavbar()">
                         <font-awesome-icon icon="asterisk"/>

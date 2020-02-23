@@ -5,6 +5,9 @@
 
     const SubjectService = {
         methods: {
+            createSubject(schema) {
+                return axios.post(`subjects/${schema.subject}/versions`, {schema: schema.schema, schemaType: "CHESS"});
+            },
             findSubject(id) {
                 return axios.get(`${baseApiUrl}/${id}/versions`);
             },
