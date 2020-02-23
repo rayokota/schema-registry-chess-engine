@@ -7,11 +7,11 @@
             <p class="lead">Welcome to the Confluent Chess Engine!</p>
 
             <p>
-                This demo shows how custom schemas can be stored and retrieved in Confluent Schema Registry.
+                This application is a demonstration of how custom schemas can be stored and retrieved in Confluent Schema Registry.
             </p>
 
             <p>
-                In this case, the custom schemas take the form of PGN notation, which is used to describe chess games.
+                In this case, the custom schemas take the form of PGN (Portable Game Notation), which is used to describe chess games.
             </p>
 
             <p>

@@ -40,7 +40,6 @@ const SubjectDetails = {
                             var history = chess.history();
                             this.currentLastMove = history[history.length-1];
                             this.versions.push(response.data);
-                            console.log("last " + this.currentLastMove);
                         })
                 })
                 .catch(error => {
@@ -106,6 +105,11 @@ const SubjectDetails = {
         },
         closeDialog() {
             this.$refs.removeEntity.hide();
+        }
+    },
+    computed: {
+        sortedVersions: function () {
+            return this.versions.sort((a, b) => (a.version > b.version) ? 1 : ((b.version > a.version) ? -1 : 0));
         }
     }
 };

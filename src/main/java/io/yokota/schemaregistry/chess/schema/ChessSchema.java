@@ -57,11 +57,9 @@ public class ChessSchema implements ParsedSchema {
         props.put("white", "Player");
         props.put("black", "Computer");
         if (schemaString.trim().contains(" ")) {
-            System.out.println("** found pgn " + schemaString);
             move = null;
             pgn = schemaString;
         } else {
-            System.out.println("** found move " + schemaString);
             move = schemaString;
             pgn = null;
         }
@@ -121,18 +119,12 @@ public class ChessSchema implements ParsedSchema {
                 return false;
             }
         }
-        System.out.println("*** prev size " + previousSchemas.size());
-        System.out.println("*** move " + move);
         if (move != null && previousSchemas.isEmpty()) {
             Game game = new Game();
             game.addMove(move);
             game.addMove(game.getBestMove(MOVE_TIME_MS));
             move = null;
             pgn = game.getPgnMoves();
-            System.out.println("*** yes move " + move);
-        } else {
-            System.out.println("*** no move " + move);
-
         }
         return CompatibilityChecker.checker(level).isCompatible(this, previousSchemas);
     }

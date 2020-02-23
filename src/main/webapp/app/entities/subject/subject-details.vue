@@ -20,7 +20,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="version in versions">
+                <tr v-for="version in sortedVersions">
                     <td>{{version.version}}</td>
                     <td>{{version.id}}</td>
                     <td>{{version.schema}}</td>
@@ -41,7 +41,7 @@
         <b-modal ref="removeEntity" id="removeEntity">
             <span slot="modal-title"><span id="srApp.subject.delete.question">Confirm delete operation</span></span>
             <div class="modal-body">
-                <p id="jhi-delete-subject-heading">Are you sure you want to delete this Subject?</p>
+                <p id="jhi-delete-subject-heading">Are you sure you want to delete this Version?</p>
             </div>
             <div slot="modal-footer">
                 <button type="button" class="btn btn-secondary" v-on:click="closeDialog()">Cancel</button>

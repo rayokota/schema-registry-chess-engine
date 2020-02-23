@@ -38,7 +38,6 @@ public class ChessSchemaProvider extends AbstractSchemaProvider {
     public Optional<ParsedSchema> parseSchema(String schemaString,
                                               List<SchemaReference> references) {
         try {
-            System.out.println("*** parsing " + schemaString);
             return Optional.of(
                 new ChessSchema(schemaString, references, resolveReferences(references), null));
         } catch (Exception e) {
