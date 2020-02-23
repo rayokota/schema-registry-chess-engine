@@ -13,6 +13,10 @@
                         <label class="form-control-label" for="schema-subject">Subject</label>
                         <input type="text" class="form-control" name="subject" id="schema-subject"
                                v-model="schema.subject"/>
+                        <input type="radio" id="white" v-model="schema.schema" v-bind:value="'{play as white}'">
+                        <label for="white">Play as white</label>
+                        <input type="radio" id="black" v-model="schema.schema" v-bind:value="'{play as black}'">
+                        <label for="black">Play as black</label>
                     </div>
                 </div>
                 <div>

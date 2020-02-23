@@ -119,10 +119,14 @@ public class ChessSchema implements ParsedSchema {
                 return false;
             }
         }
-        if (move != null && previousSchemas.isEmpty()) {
+        if (previousSchemas.isEmpty()) {
             Game game = new Game();
-            game.addMove(move);
-            game.addMove(game.getBestMove(MOVE_TIME_MS));
+            if (move != null) {
+                game.addMove(move);
+                game.addMove(game.getBestMove(MOVE_TIME_MS));
+            } else if ("{play as black}".equals(pgn)) {
+                game.addMove(game.getBestMove(MOVE_TIME_MS));
+            }
             move = null;
             pgn = game.getPgnMoves();
         }

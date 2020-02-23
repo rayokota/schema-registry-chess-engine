@@ -76,6 +76,7 @@ const SubjectDetails = {
                 Promise.all(promises).then(versions => {
                     this.versions = newVersions
                     if (newVersions.length > 0) {
+                        newVersions.sort((a, b) => (a.version > b.version) ? 1 : ((b.version > a.version) ? -1 : 0));
                         var lastVersion = newVersions[newVersions.length-1];
                         var pgn = lastVersion.schema;
                         var chess = new Chess();

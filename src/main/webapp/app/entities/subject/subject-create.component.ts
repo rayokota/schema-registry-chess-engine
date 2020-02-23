@@ -8,7 +8,7 @@ const SubjectCreate = {
         return {
             schema: {
                 subject: null,
-                schema: '{new game}'
+                schema: '{play as white}'
             },
             isSaving: false,
             error: null
