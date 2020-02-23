@@ -38,6 +38,7 @@ export default {
                     color: this.toColor(),
                     dests: this.possibleMoves(),
                 },
+                orientation: this.orientation,
             })
         },
     }
