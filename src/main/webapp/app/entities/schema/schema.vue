@@ -32,11 +32,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>
-                        <vue-json-pretty
-                            :data="JSON.parse(schema)">
-                        </vue-json-pretty>
-                    </td>
+                    <td>{{schema}}</td>
                 </tr>
                 </tbody>
             </table>

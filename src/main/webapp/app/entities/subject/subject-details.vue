@@ -1,10 +1,11 @@
 <template>
     <div>
         <h2 id="page-heading">
-            <span id="subject-heading">Versions</span>
+            <span id="subject-heading">Game: {{subjectId}}</span>
         </h2>
         <!--<jhi-alert></jhi-alert>-->
         <br/>
+        <chessgame :fen="currentFen" :lastMove="currentLastMove" @onMove="showInfo"/>
         <div class="table-responsive" v-if="versions">
             <table class="table table-striped">
                 <thead>
@@ -22,11 +23,7 @@
                 <tr v-for="version in versions">
                     <td>{{version.version}}</td>
                     <td>{{version.id}}</td>
-                    <td>
-                        <vue-json-pretty
-                            :data="JSON.parse(version.schema)">
-                        </vue-json-pretty>
-                    </td>
+                    <td>{{version.schema}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <b-btn v-on:click="prepareRemove(version)"

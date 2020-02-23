@@ -16,6 +16,7 @@ export default {
         }
     },
     methods: {
+        // Copy this method from the superclass
         possibleMoves () {
             const dests = {}
             this.game.SQUARES.forEach(s => {
@@ -24,6 +25,7 @@ export default {
             })
             return dests
         },
+        // Copy this method from the superclass
         toColor () {
             return (this.game.turn() === 'w') ? 'white' : 'black'
         },
