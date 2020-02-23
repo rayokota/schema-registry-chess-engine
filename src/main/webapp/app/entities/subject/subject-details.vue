@@ -5,15 +5,17 @@
         </h2>
         <!--<jhi-alert></jhi-alert>-->
         <br/>
-        <chessgame :fen="currentFen" :lastMove="currentLastMove" :flip="currentOrientation" @onMove="showInfo"/>
-        <div class="btn-group flex-btn-group-container">
-            <b-btn v-on:click="flip()"
-                   class="btn btn-sm"
-                   v-b-modal.flip>
-                <font-awesome-icon icon="times"></font-awesome-icon>
-                <span class="d-none d-md-inline">Flip</span>
-            </b-btn>
+        <div class="table-responsive">
+            <chessgame :fen="currentFen" :lastMove="currentLastMove" :flip="currentOrientation" @onMove="showInfo"/>
+            <div class="btn-group flex-btn-group-container">
+                <b-btn v-on:click="flip()"
+                       class="btn btn-sm"
+                       v-b-modal.flip>
+                    <span class="d-none d-md-inline">Flip board</span>
+                </b-btn>
+            </div>
         </div>
+        <br/>
         <div class="table-responsive" v-if="versions">
             <table class="table table-striped">
                 <thead>
