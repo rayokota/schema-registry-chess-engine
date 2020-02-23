@@ -4,16 +4,25 @@ import {chessboard} from 'vue-chessboard'
 export default {
     extends: chessboard,
     props: {
+        // An alternative to orientation to avoid loadPosition()
+        flip: {
+            type: String,
+            default: 'white',
+        },
         lastMove: {
             type: String,
             default: '',
-        }
+        },
     },
     watch: {
+        flip: function (flip) {
+            this.flip = flip;
+            this.reloadPosition()
+        },
         lastMove: function (newLastMove) {
             this.lastMove = newLastMove
             this.move()
-        }
+        },
     },
     methods: {
         // Copy this method from the superclass
@@ -31,6 +40,9 @@ export default {
         },
         move () {
             this.game.move(this.lastMove)
+            this.reloadPosition()
+        },
+        reloadPosition () {
             this.board.set({
                 fen: this.game.fen(),
                 turnColor: this.toColor(),
@@ -38,7 +50,7 @@ export default {
                     color: this.toColor(),
                     dests: this.possibleMoves(),
                 },
-                orientation: this.orientation,
+                orientation: this.flip,
             })
         },
     }

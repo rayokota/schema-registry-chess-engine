@@ -16,7 +16,8 @@ const SubjectDetails = {
             subjectId: null,
             versions: [],
             currentFen: '',
-            currentLastMove: ''
+            currentLastMove: '',
+            currentOrientation: 'white'
         };
     },
     beforeRouteEnter(to, from, next) {
@@ -54,6 +55,9 @@ const SubjectDetails = {
         },
         loadLastMove(lastMove) {
             this.currentLastMove = lastMove
+        },
+        flip() {
+            this.currentOrientation = this.currentOrientation == "white" ? "black" : "white";
         },
         promote() {
             if (confirm("Want to promote to rook? Queen by default") ) {
