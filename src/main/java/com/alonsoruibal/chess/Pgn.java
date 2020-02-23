@@ -150,6 +150,25 @@ public class Pgn {
 			line.append(b.getSanMove(i));
 		}
 
+        if (result == null) {
+            result = "*";
+            switch (b.isEndGame()) {
+                case 1:
+                    result = "1-0";
+                    break;
+                case -1:
+                    result = "0-1";
+                    break;
+                case 99:
+                    result = "1/2-1/2";
+                    break;
+            }
+        }
+        if (!"*".equals(result)) {
+            line.append(" ");
+            line.append(result);
+        }
+
         String moves = line.toString();
 		if (moves.trim().isEmpty()) {
 		    moves = "{new game}";

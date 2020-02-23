@@ -113,6 +113,20 @@ const SubjectDetails = {
         }
     },
     computed: {
+        gameResult: function () {
+            if (this.versions.length == 0) {
+                return '';
+            }
+            var lastVersion = this.versions[this.versions.length-1].schema;
+            var lastMove = lastVersion.substring(lastVersion.lastIndexOf(" ") + 1);
+            if (lastMove === '1-0') {
+                return 'White won!';
+            } else if (lastMove === '0-1') {
+                return 'Black won!';
+            } else {
+                return '';
+            }
+        },
         sortedVersions: function () {
             return this.versions.sort((a, b) => (a.version > b.version) ? 1 : ((b.version > a.version) ? -1 : 0));
         }
