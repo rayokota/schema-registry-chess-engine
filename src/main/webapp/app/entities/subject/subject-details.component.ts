@@ -28,7 +28,7 @@ const SubjectDetails = {
         });
     },
     methods: {
-        showInfo(data) {
+        submitMove(data) {
             this.positionInfo = data;
             axios.post(`subjects/${this.subjectId}/versions`, {schemaType: "CHESS", schema: data.history[data.history.length-1]})
                 .then(response => {
@@ -57,7 +57,7 @@ const SubjectDetails = {
             this.currentLastMove = lastMove
         },
         flip() {
-            this.currentOrientation = this.currentOrientation == "white" ? "black" : "white";
+            this.currentOrientation = this.currentOrientation === 'white' ? 'black' : 'white';
         },
         promote() {
             if (confirm("Want to promote to rook? Queen by default") ) {
@@ -85,6 +85,7 @@ const SubjectDetails = {
                         var pgn = lastVersion.schema;
                         var chess = new Chess();
                         chess.load_pgn(pgn);
+                        this.currentOrientation = chess.turn() === 'w' ? 'white' : 'black';
                         this.loadFen(chess.fen());
                     }
                     this.versions = newVersions

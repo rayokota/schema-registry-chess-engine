@@ -8,7 +8,7 @@
         <div class="table-responsive">
             <div><strong>{{gameResult}}</strong></div>
             <br/>
-            <chessgame :fen="currentFen" :lastMove="currentLastMove" :flip="currentOrientation" @onMove="showInfo"/>
+            <chessgame :fen="currentFen" :lastMove="currentLastMove" :flip="currentOrientation" @onMove="submitMove"/>
             <div class="btn-group flex-btn-group-container">
                 <b-btn v-on:click="flip()"
                        class="btn btn-primary btn-sm"
