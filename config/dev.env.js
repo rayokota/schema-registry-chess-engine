@@ -1,10 +1,10 @@
 'use strict';
 const merge = require('webpack-merge');
 const prodEnv = require('./prod.env');
+const utils = require('../webpack/utils.js');
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
   SERVER_API_URL: '\'\'',
-  // APP_VERSION is passed as an environment variable from the Gradle / Maven build tasks.
-  VERSION: `'${process.env.hasOwnProperty('APP_VERSION') ? process.env.APP_VERSION : 'UNKNOWN'}'`,
+  VERSION: `'${utils.parseVersion()}'`,
 });
