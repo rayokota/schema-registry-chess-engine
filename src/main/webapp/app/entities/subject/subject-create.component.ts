@@ -1,4 +1,4 @@
-import {integer, maxLength, minLength, pattern, required} from 'vuelidate/lib/validators';
+import {integer, maxLength, minLength, required} from 'vuelidate/lib/validators';
 
 import SubjectService from './subject.service.vue';
 

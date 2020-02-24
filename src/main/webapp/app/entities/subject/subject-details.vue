@@ -11,7 +11,7 @@
             <chessgame :fen="currentFen" :lastMove="currentLastMove" :flip="currentOrientation" @onMove="showInfo"/>
             <div class="btn-group flex-btn-group-container">
                 <b-btn v-on:click="flip()"
-                       class="btn btn-sm"
+                       class="btn btn-primary btn-sm"
                        v-b-modal.flip>
                     <span class="d-none d-md-inline">Flip board</span>
                 </b-btn>

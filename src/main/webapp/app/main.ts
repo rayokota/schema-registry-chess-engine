@@ -5,7 +5,7 @@ import setupAxiosInterceptors from './config/axios-interceptor';
 import App from './App.vue';
 import router from './router';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
-import {Modal, Pagination, Progress} from 'bootstrap-vue/es/components';
+import * as bootstrapVueConfig from './config/config-bootstrap-vue';
 import * as config from './shared/config';
 import JhiItemCountComponent from './shared/ItemCount.vue';
 
@@ -18,12 +18,9 @@ setupAxiosInterceptors(() => console.log('Unauthorized!'));
 
 const store = config.initVueXStore(Vue);
 config.initVueApp(Vue);
-config.initBootstrapVue(Vue);
+bootstrapVueConfig.initBootstrapVue(Vue);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('jhi-item-count', JhiItemCountComponent);
-Vue.use(Modal);
-Vue.use(Pagination);
-Vue.use(Progress);
 
 /* eslint-disable no-new */
 new Vue({
