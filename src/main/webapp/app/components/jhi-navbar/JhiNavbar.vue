@@ -16,22 +16,22 @@
         <!--<div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed">-->
         <b-collapse is-nav id="header-tabs">
             <b-navbar-nav class="ml-auto">
-                <b-nav-item to="/">
+                <b-nav-item to="/" exact>
                     <span>
                         <font-awesome-icon icon="home"/>
                         <span>Home</span>
                     </span>
                 </b-nav-item>
-                <b-nav-item-dropdown id="entity-menu" v-if="authenticated" class="pointer">
-                    <template slot="button-content">
+                <b-nav-item-dropdown id="entity-menu" v-if="authenticated" active-class="active" class="pointer">
+                    <span slot="button-content" class="navbar-drowndown-menu">
                         <font-awesome-icon icon="th-list"/>
                         <span>Entities</span>
-                    </template>
-                    <b-dropdown-item to="/entity/subject" class="dropdown-item" v-on:click="collapseNavbar()">
+                    </span>
+                    <b-dropdown-item to="/entity/subject">
                         <font-awesome-icon icon="asterisk"/>
                         <span>Games</span>
                     </b-dropdown-item>
-                    <b-dropdown-item to="/entity/schema" class="dropdown-item" v-on:click="collapseNavbar()">
+                    <b-dropdown-item to="/entity/schema">
                         <font-awesome-icon icon="asterisk"/>
                         <span>Schema</span>
                     </b-dropdown-item>
