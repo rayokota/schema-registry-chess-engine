@@ -100,6 +100,9 @@ public class ChessSchema implements ParsedSchema {
 
     @Override
     public boolean isBackwardCompatible(ParsedSchema previousSchema) {
+        if (move == null) {
+            return false;
+        }
         ChessSchema chessSchema = (ChessSchema) previousSchema;
         String lastBoard = chessSchema.canonicalString();
         Game game = new Game();
