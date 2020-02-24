@@ -137,8 +137,6 @@ public class Pgn {
 		// logger.debug("PGN start");
 
 		StringBuilder line = new StringBuilder();
-		System.out.println("*** initial " + b.initialMoveNumber);
-        System.out.println("*** final " + b.moveNumber);
 
 		for (int i = b.initialMoveNumber; i < b.moveNumber; i++) {
 			line.append(" ");
@@ -146,7 +144,6 @@ public class Pgn {
 				line.append((i >>> 1) + 1);
 				line.append(".");
 			}
-            System.out.println("*** move " + b.getSanMove(i));
 			line.append(b.getSanMove(i));
 		}
 
