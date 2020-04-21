@@ -1,0 +1,11 @@
+{
+ "type": "record",
+ "namespace": "io.confluent.examples.schemas.avro",
+ "name": "product",
+
+ "fields": [
+     {"name": "product_id", "type": "int"},
+     {"name": "product_name", "type": "string"},
+     {"name": "product_price", "type": "double"}
+ ]
+}

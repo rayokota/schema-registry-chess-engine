@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package io.confluent.examples.generated_sources.protobuf;
+
+message Payment {
+    int32 payment_method_code = 1;
+    int64 card_number = 2;
+    string expiration_date = 3;
+    int32 cvv = 4;
+}
+

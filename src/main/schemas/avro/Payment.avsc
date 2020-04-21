@@ -1,0 +1,12 @@
+{
+ "type": "record",
+ "namespace": "io.confluent.examples.schemas.avro",
+ "name": "payment",
+
+ "fields": [
+     {"name": "payment_method_code", "type": "int"},
+     {"name": "card_number", "type": "long"},
+     {"name": "expiration_date", "type": "string"},
+     {"name": "cvv", "type": "int"}
+ ]
+}

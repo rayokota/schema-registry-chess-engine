@@ -334,6 +334,101 @@
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-schema-registry-maven-plugin</artifactId>
+                <version>5.5.0-SNAPSHOT</version>
+                <configuration>
+                    <schemaRegistryUrls>
+                        <param>http://127.0.0.1:8081</param>
+                    </schemaRegistryUrls>
+                    <userInfoConfig>tenant1-key:nohash</userInfoConfig>
+                    <outputDirectory>src/main/java/</outputDirectory>
+                    <subjects>
+                        <order>src/main/schemas/protobuf/Order.proto</order>
+                        <product>src/main/schemas/protobuf/Product.proto</product>
+                        <customer>src/main/schemas/protobuf/Customer.proto</customer>
+                        <payment>src/main/schemas/protobuf/Payment.proto</payment>
+                    </subjects>
+                    <schemaTypes>
+                        <order>PROTOBUF</order>
+                        <product>PROTOBUF</product>
+                        <customer>PROTOBUF</customer>
+                        <payment>PROTOBUF</payment>
+                    </schemaTypes>
+                    <references>
+                        <order>
+                            <reference>
+                                <name>Product.proto</name>
+                                <subject>product</subject>
+                            </reference>
+                            <reference>
+                                <name>Customer.proto</name>
+                                <subject>customer</subject>
+                            </reference>
+                            <reference>
+                                <name>Payment.proto</name>
+                                <subject>payment</subject>
+                            </reference>
+                        </order>
+                    </references>
+                </configuration>
+                <goals>
+                    <goal>register</goal>
+                </goals>
+            </plugin>
+
+
+
+            <plugin>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-schema-registry-maven-plugin</artifactId>
+                <version>5.5.0-SNAPSHOT</version>
+
+                <!--
+                <configuration>
+                    <schemaRegistryUrls>
+                        <param>http://127.0.0.1:8081</param>
+                    </schemaRegistryUrls>
+                    <outputDirectory>src/main/java/</outputDirectory>
+                    <subjects>
+                        <product>src/main/schemas/avro/Product.avsc</product>
+                        <customer>src/main/schemas/avro/Customer.avsc</customer>
+                        <payment>src/main/schemas/avro/Payment.avsc</payment>
+                        <order>src/main/schemas/avro/Order.avsc</order>
+                    </subjects>
+                    <schemaTypes>
+                        <order>AVRO</order>
+                        <product>AVRO</product>
+                        <customer>AVRO</customer>
+                        <payment>AVRO</payment>
+                    </schemaTypes>
+                    <references>
+                        <order>
+                            <reference>
+                                <name>io.confluent.examples.schemas.avro.product</name>
+                                <subject>product</subject>
+                            </reference>
+                            <reference>
+                                <name>io.confluent.examples.schemas.avro.customer</name>
+                                <subject>customer</subject>
+                            </reference>
+                            <reference>
+                                <name>io.confluent.examples.schemas.avro.payment</name>
+                                <subject>payment</subject>
+                            </reference>
+                        </order>
+                    </references>
+                </configuration>
+                <goals>
+                    <goal>register</goal>
+                </goals>
+                -->
+            </plugin>
+
         </plugins>
+
+
     </build>
 </project>

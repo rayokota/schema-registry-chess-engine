@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package io.confluent.examples.generated_sources.protobuf;
+
+message Product {
+    int64 product_id = 1;
+    string product_name = 2;
+    float product_price = 3;
+ }
