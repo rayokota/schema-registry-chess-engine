@@ -1,0 +1,11 @@
+{
+  "namespace": "io.confluent.kafka.example",
+  "type": "record",
+  "name": "Address",
+  "fields": [
+    {
+      "name": "addr",
+      "type": "string"
+    }
+  ]
+}

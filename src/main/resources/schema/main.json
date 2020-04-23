@@ -1,0 +1,1 @@
+{"type":"object","additionalProperties":false,"properties":{"Ref":{"$ref":"ref.json#/definitions/ExternalType"}}}
