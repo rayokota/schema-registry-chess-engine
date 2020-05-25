@@ -397,58 +397,58 @@
                     <userInfoConfig>tenant1-key:nohash</userInfoConfig>
                     <outputDirectory>src/main/java/</outputDirectory>
                     <subjects>
-                        <all_avro_types>src/main/schemas/avro/CustomerOrProduct.avsc</all_avro_types>
-                        <customer_avro>src/main/schemas/avro/Customer.avsc</customer_avro>
-                        <product_avro>src/main/schemas/avro/Product.avsc</product_avro>
-                        <all_json_types>src/main/schemas/json/CustomerOrProduct.schema.json</all_json_types>
-                        <customer_json>src/main/schemas/json/Customer.schema.json</customer_json>
-                        <product_json>src/main/schemas/json/Product.schema.json</product_json>
-                        <all_proto_types>src/main/schemas/protobuf/CustomerOrProduct.proto</all_proto_types>
-                        <customer_proto>src/main/schemas/protobuf/Customer.proto</customer_proto>
-                        <product_proto>src/main/schemas/protobuf/Product.proto</product_proto>
+                        <all-avro-value>src/main/schemas/avro/CustomerOrProduct.avsc</all-avro-value>
+                        <customer-avro>src/main/schemas/avro/Customer.avsc</customer-avro>
+                        <product-avro>src/main/schemas/avro/Product.avsc</product-avro>
+                        <all-json-value>src/main/schemas/json/CustomerOrProduct.schema.json</all-json-value>
+                        <customer-json>src/main/schemas/json/Customer.schema.json</customer-json>
+                        <product-json>src/main/schemas/json/Product.schema.json</product-json>
+                        <all-proto-value>src/main/schemas/protobuf/CustomerOrProduct.proto</all-proto-value>
+                        <customer-proto>src/main/schemas/protobuf/Customer.proto</customer-proto>
+                        <product-proto>src/main/schemas/protobuf/Product.proto</product-proto>
                     </subjects>
                     <schemaTypes>
-                        <all_avro_types>AVRO</all_avro_types>
-                        <customer_avro>AVRO</customer_avro>
-                        <product_avro>AVRO</product_avro>
-                        <all_json_types>JSON</all_json_types>
-                        <customer_json>JSON</customer_json>
-                        <product_json>JSON</product_json>
-                        <all_proto_types>PROTOBUF</all_proto_types>
-                        <customer_proto>PROTOBUF</customer_proto>
-                        <product_proto>PROTOBUF</product_proto>
+                        <all-avro-value>AVRO</all-avro-value>
+                        <customer-avro>AVRO</customer-avro>
+                        <product-avro>AVRO</product-avro>
+                        <all-json-value>JSON</all-json-value>
+                        <customer-json>JSON</customer-json>
+                        <product-json>JSON</product-json>
+                        <all-proto-value>PROTOBUF</all-proto-value>
+                        <customer-proto>PROTOBUF</customer-proto>
+                        <product-proto>PROTOBUF</product-proto>
                     </schemaTypes>
                     <references>
-                        <all_avro_types>
+                        <all-avro-value>
                             <reference>
                                 <name>io.confluent.examples.avro.Customer</name>
-                                <subject>customer_avro</subject>
+                                <subject>customer-avro</subject>
                             </reference>
                             <reference>
                                 <name>io.confluent.examples.avro.Product</name>
-                                <subject>product_avro</subject>
+                                <subject>product-avro</subject>
                             </reference>
-                        </all_avro_types>
-                        <all_json_types>
+                        </all-avro-value>
+                        <all-json-value>
                             <reference>
                                 <name>Customer.schema.json</name>
-                                <subject>customer_json</subject>
+                                <subject>customer-json</subject>
                             </reference>
                             <reference>
                                 <name>Product.schema.json</name>
-                                <subject>product_json</subject>
+                                <subject>product-json</subject>
                             </reference>
-                        </all_json_types>
-                        <all_proto_types>
+                        </all-json-value>
+                        <all-proto-value>
                             <reference>
                                 <name>Customer.proto</name>
-                                <subject>customer_proto</subject>
+                                <subject>customer-proto</subject>
                             </reference>
                             <reference>
                                 <name>Product.proto</name>
-                                <subject>product_proto</subject>
+                                <subject>product-proto</subject>
                             </reference>
-                        </all_proto_types>
+                        </all-proto-value>
                     </references>
                 </configuration>
                 <goals>

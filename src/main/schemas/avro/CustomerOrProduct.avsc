@@ -1,14 +1,4 @@
-{
- "type": "record",
- "namespace": "io.confluent.examples.avro",
- "name": "CustomerOrProduct",
- "fields": [
-   {
-     "name": "oneof_type",
-     "type": [
-       "io.confluent.examples.avro.Customer",
-       "io.confluent.examples.avro.Product"
-     ]
-   }
- ]
-}
+[
+    "io.confluent.examples.avro.Customer",
+    "io.confluent.examples.avro.Product"
+]
