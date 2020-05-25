@@ -1,0 +1,9 @@
+{
+ "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "product_id": { "type": "integer" },
+    "product_name": { "type": "string" },
+    "product_price": { "type": "number" }
+  }
+}

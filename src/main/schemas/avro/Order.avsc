@@ -1,21 +1,21 @@
 {
  "type": "record",
- "namespace": "io.confluent.examples.schemas.avro",
- "name": "order",
+ "namespace": "io.confluent.examples.avro",
+ "name": "Order",
  "fields": [
      {"name": "order_id", "type": "string"},
      {"name": "order_date", "type": "string"},
      {
         "name": "product",
-        "type": "io.confluent.examples.schemas.avro.product"
+        "type": "io.confluent.examples.avro.Product"
      },
      {
         "name": "customer",
-        "type": "io.confluent.examples.schemas.avro.customer"
+        "type": "io.confluent.examples.avro.Customer"
      },
      {
         "name": "payment_method",
-        "type": "io.confluent.examples.schemas.avro.payment"
+        "type": "io.confluent.examples.avro.Payment"
      }
  ]
 }

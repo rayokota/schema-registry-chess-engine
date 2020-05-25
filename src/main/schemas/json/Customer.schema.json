@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "customer_id": { "type": "integer" },
+        "customer_name": { "type": "string" },
+        "customer_email": { "type": "string" },
+        "customer_address": { "type": "string" }
+    }
+}

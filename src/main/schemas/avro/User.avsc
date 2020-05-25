@@ -1,5 +1,5 @@
 {
-  "namespace": "io.confluent.kafka.example",
+  "namespace": "io.confluent.examples.avro",
   "type": "record",
   "name": "User",
   "fields": [
@@ -9,7 +9,7 @@
     },
     {
       "name": "address",
-      "type": "io.confluent.kafka.example.Address"
+      "type": "io.confluent.examples.avro.Address"
     }
   ]
 }

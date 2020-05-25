@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package io.confluent.examples.proto;
+
+import "Customer.proto";
+import "Product.proto";
+
+message CustomerOrProduct {
+    oneof oneof_type {
+        Customer customer = 1;
+        Product product = 2;
+    }
+}
+

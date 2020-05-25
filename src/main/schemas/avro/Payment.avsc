@@ -1,7 +1,7 @@
 {
  "type": "record",
- "namespace": "io.confluent.examples.schemas.avro",
- "name": "payment",
+ "namespace": "io.confluent.examples.avro",
+ "name": "Payment",
 
  "fields": [
      {"name": "payment_method_code", "type": "int"},

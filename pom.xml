@@ -43,7 +43,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <!-- Dependency versions -->
-        <confluent.version>5.5.0-SNAPSHOT</confluent.version>
+        <confluent.version>6.0.0-SNAPSHOT</confluent.version>
         <kafka.version>2.4.0</kafka.version>
         <kafka.scala.version>2.12</kafka.scala.version>
         <jersey.version>2.27</jersey.version>
@@ -357,10 +357,11 @@
                 </executions>
             </plugin>
 
+            <!--
             <plugin>
                 <groupId>io.confluent</groupId>
                 <artifactId>kafka-schema-registry-maven-plugin</artifactId>
-                <version>5.5.0-SNAPSHOT</version>
+                <version>${confluent.version}</version>
                 <configuration>
                     <schemaRegistryUrls>
                         <param>http://127.0.0.1:8081</param>
@@ -384,11 +385,11 @@
                     <goal>register</goal>
                 </goals>
             </plugin>
-            <!--
+            -->
             <plugin>
                 <groupId>io.confluent</groupId>
                 <artifactId>kafka-schema-registry-maven-plugin</artifactId>
-                <version>5.5.0-SNAPSHOT</version>
+                <version>${confluent.version}</version>
                 <configuration>
                     <schemaRegistryUrls>
                         <param>http://127.0.0.1:8081</param>
@@ -396,46 +397,71 @@
                     <userInfoConfig>tenant1-key:nohash</userInfoConfig>
                     <outputDirectory>src/main/java/</outputDirectory>
                     <subjects>
-                        <order>src/main/schemas/protobuf/Order.proto</order>
-                        <product>src/main/schemas/protobuf/Product.proto</product>
-                        <customer>src/main/schemas/protobuf/Customer.proto</customer>
-                        <payment>src/main/schemas/protobuf/Payment.proto</payment>
+                        <all_avro_types>src/main/schemas/avro/CustomerOrProduct.avsc</all_avro_types>
+                        <customer_avro>src/main/schemas/avro/Customer.avsc</customer_avro>
+                        <product_avro>src/main/schemas/avro/Product.avsc</product_avro>
+                        <all_json_types>src/main/schemas/json/CustomerOrProduct.schema.json</all_json_types>
+                        <customer_json>src/main/schemas/json/Customer.schema.json</customer_json>
+                        <product_json>src/main/schemas/json/Product.schema.json</product_json>
+                        <all_proto_types>src/main/schemas/protobuf/CustomerOrProduct.proto</all_proto_types>
+                        <customer_proto>src/main/schemas/protobuf/Customer.proto</customer_proto>
+                        <product_proto>src/main/schemas/protobuf/Product.proto</product_proto>
                     </subjects>
                     <schemaTypes>
-                        <order>PROTOBUF</order>
-                        <product>PROTOBUF</product>
-                        <customer>PROTOBUF</customer>
-                        <payment>PROTOBUF</payment>
+                        <all_avro_types>AVRO</all_avro_types>
+                        <customer_avro>AVRO</customer_avro>
+                        <product_avro>AVRO</product_avro>
+                        <all_json_types>JSON</all_json_types>
+                        <customer_json>JSON</customer_json>
+                        <product_json>JSON</product_json>
+                        <all_proto_types>PROTOBUF</all_proto_types>
+                        <customer_proto>PROTOBUF</customer_proto>
+                        <product_proto>PROTOBUF</product_proto>
                     </schemaTypes>
                     <references>
-                        <order>
+                        <all_avro_types>
                             <reference>
-                                <name>Product.proto</name>
-                                <subject>product</subject>
+                                <name>io.confluent.examples.avro.Customer</name>
+                                <subject>customer_avro</subject>
                             </reference>
+                            <reference>
+                                <name>io.confluent.examples.avro.Product</name>
+                                <subject>product_avro</subject>
+                            </reference>
+                        </all_avro_types>
+                        <all_json_types>
+                            <reference>
+                                <name>Customer.schema.json</name>
+                                <subject>customer_json</subject>
+                            </reference>
+                            <reference>
+                                <name>Product.schema.json</name>
+                                <subject>product_json</subject>
+                            </reference>
+                        </all_json_types>
+                        <all_proto_types>
                             <reference>
                                 <name>Customer.proto</name>
-                                <subject>customer</subject>
+                                <subject>customer_proto</subject>
                             </reference>
                             <reference>
-                                <name>Payment.proto</name>
-                                <subject>payment</subject>
+                                <name>Product.proto</name>
+                                <subject>product_proto</subject>
                             </reference>
-                        </order>
+                        </all_proto_types>
                     </references>
                 </configuration>
                 <goals>
                     <goal>register</goal>
                 </goals>
             </plugin>
-            -->
 
 
             <!--
             <plugin>
                 <groupId>io.confluent</groupId>
                 <artifactId>kafka-schema-registry-maven-plugin</artifactId>
-                <version>5.5.0-SNAPSHOT</version>
+                <version>${confluent.version}</version>
 
                 <configuration>
                     <schemaRegistryUrls>
