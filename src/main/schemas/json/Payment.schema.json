@@ -1,0 +1,10 @@
+{
+ "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "payment_method_code": { "type": "integer" },
+    "card_number": { "type": "integer" },
+    "expiration_date": { "type": "string" },
+    "cvv": { "type": "integer" }
+  }
+}
