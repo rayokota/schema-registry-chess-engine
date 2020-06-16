@@ -395,6 +395,7 @@
                         <param>http://127.0.0.1:8081</param>
                     </schemaRegistryUrls>
                     <userInfoConfig>tenant1-key:nohash</userInfoConfig>
+                    <outputDirectory>src/main/java/</outputDirectory>
                     <subjects>
                         <all-avro-value>src/main/schemas/avro/CustomerOrProduct.avsc</all-avro-value>
                         <customer-avro>src/main/schemas/avro/Customer.avsc</customer-avro>
